@@ -3,13 +3,14 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 
 process = cms.Process("FramesProducer")
 
-process.source = {source = EmptySource {untracked int32 maxEvents=2}
+process.source = cms.source("EmptySource", maxEvents=cms.untracked.uint32(2))
 
   #load our module
-   module stuff = MyStuffProducer {}
-
+   #module stuff = MyStuffProducer {}
+  process.stuff=cms.EDProducer("MyStuffProducer") 
+  
    #make sure our module is called every event
-   path p = { stuff }
+   process.p = cms.Path(process.stuff)
 
     #just to see that something is happening
    service = Tracer {}
