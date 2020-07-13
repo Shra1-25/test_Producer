@@ -81,7 +81,8 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<ExampleData2,InRun>();
 */
    //now do what ever other initialization is needed
-   produces<MyStuff>();
+   produces<MyStuff>("value");
+   produces<SampleCollection>("vec_of_values");
 }
 
 
@@ -118,8 +119,12 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 */
- std::auto_ptr<MyStuff> myStuff( new MyStuff );
- iEvent.put( myStuff);
+ /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
+ iEvent.put( myStuff);*/
+ std::unique_ptr<SampleCollection> result1 (new SampleCollection);
+ std::unique_ptr<MyStuff> result2 (new MyStuff);
+ iEvent.put(std::move(result1));
+ iEvent.put(std::move(result2));
 }
 
 // ------------ method called once each stream before processing any runs, lumis or events  ------------
