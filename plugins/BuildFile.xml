@@ -2,4 +2,5 @@
 <use name="FWCore/PluginManager"/>
 <use name="FWCore/ParameterSet"/>
 <use name="AnalysisMyStuff"/>
+<use name="StuffProd/MyStuff"/>
 <flags EDM_PLUGIN="1"/>
