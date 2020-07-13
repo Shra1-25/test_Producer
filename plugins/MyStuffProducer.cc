@@ -82,7 +82,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
 */
    //now do what ever other initialization is needed
    produces<trial1>("value");
-   produces<SampleCollection>("vec_of_values");
+   produces<SampleCollection>("vecvalues");
 }
 
 
