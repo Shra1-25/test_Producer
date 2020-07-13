@@ -29,8 +29,8 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Utilities/interface/StreamID.h"
-#include "Analysis/MyStuff/interface/MyStuff.h"
-#include "Analysis/MyStuff/interface/MyOtherStuff.h"
+#include "MyStuff/interface/MyStuff.h"
+#include "MyStuff/interface/MyOtherStuff.h"
 #include <vector>
 
 //
