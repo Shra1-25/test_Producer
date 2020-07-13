@@ -3,7 +3,7 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 
 process = cms.Process("FramesProducer")
 
-process.source = cms.source("EmptySource", maxEvents=cms.untracked.uint32(2))
+process.source = cms.Source("EmptySource", maxEvents=cms.untracked.uint32(2))
 
 #load our module
 #module stuff = MyStuffProducer {}
