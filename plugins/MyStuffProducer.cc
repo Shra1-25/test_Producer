@@ -118,7 +118,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 */
- std::auto_ptr<MyStuff> myStuff( new MyStuff );
+ std::unique_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);
 }
 
