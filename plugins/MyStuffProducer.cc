@@ -84,6 +84,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<trial1>("value");
    produces<SampleCollection>("vecvalues");
    produces<int>("integer");
+   produces<float>("tempgenParticles");
 }
 
 
@@ -125,10 +126,13 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
  std::unique_ptr<int> result3 (new int(10));
+ auto result4=std::make_unique<float>(10.0);
+ //std::unique_ptr<float> result4 (new float(10.0));
  //std::auto_ptr<int> result3 (new int(10));
  iEvent.put(std::move(result1),"vecvalues");
  iEvent.put(std::move(result2),"value");
  iEvent.put(std::move(result3),"integer");
+ iEvent.put(std::move(result4),"tempgenParticles");
 }
 
 // ------------ method called once each stream before processing any runs, lumis or events  ------------
