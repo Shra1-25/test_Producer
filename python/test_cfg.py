@@ -15,7 +15,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 ProducerFrames = cms.EDProducer('MyStuffProducer'
     , reducedEBRecHitCollection = cms.InputTag('reducedEcalRecHitsEB')
-    , photonCollection = cms.InputTag('slimmedPhotons')
+    , photonCollection = cms.InputTag('slimmedPhotons'))
 
 process.TFileService = cms.Service("TFileService",
     fileName = cms.string("myoutput1.root")#options.outputFile
