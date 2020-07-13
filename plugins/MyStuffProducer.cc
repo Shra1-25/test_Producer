@@ -124,10 +124,11 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  iEvent.put( myStuff);*/
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
- std::unique_ptr<int> result3 (new int(10));
+ //std::unique_ptr<int> result3 (new int(10));
+ std::auto_ptr<int> result3 (new int(10));
  iEvent.put(std::move(result1),"vecvalues");
  iEvent.put(std::move(result2),"value");
- iEvent.put(std::move(result3),"integer");
+ iEvent.put(result3,"integer");
 }
 
 // ------------ method called once each stream before processing any runs, lumis or events  ------------
