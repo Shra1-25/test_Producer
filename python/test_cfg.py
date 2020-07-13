@@ -13,7 +13,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 #module stuff = MyStuffProducer {}
 #process.stuff=cms.EDProducer("MyStuffProducer") 
 
-ProducerFrames = cms.EDProducer('MyStuffProducer'
+process.stuff = cms.EDProducer('MyStuffProducer'
     , reducedEBRecHitCollection = cms.InputTag('reducedEcalRecHitsEB')
     , photonCollection = cms.InputTag('slimmedPhotons'))
 
