@@ -29,7 +29,7 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Utilities/interface/StreamID.h"
-#include "StuffProd/MyStuff/interface/MyStuff.h"
+#include "StuffProducer/MyStuff/interface/MyStuff.h"
 #include <vector>
 
 //
