@@ -13,6 +13,10 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(2) )
 #module stuff = MyStuffProducer {}
 process.stuff=cms.EDProducer("MyStuffProducer") 
 
+process.TFileService = cms.Service("TFileService",
+    fileName = cms.string("myoutput.root")#options.outputFile
+    )
+
 #make sure our module is called every event
 process.p = cms.Path(process.stuff)
 
