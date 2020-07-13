@@ -41,8 +41,8 @@
 #include "DataFormats/EcalRecHit/interface/EcalRecHitCollections.h"
 #include "DataFormats/EcalDigi/interface/EcalDigiCollections.h"
 #include "DataFormats/EcalDetId/interface/EBDetId.h"
-#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
-#include "Geometry/CaloGeometry/interface/CaloCellGeometry.h"
+//#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
+//#include "Geometry/CaloGeometry/interface/CaloCellGeometry.h"
 #include "Geometry/Records/interface/CaloGeometryRecord.h"
 
 #include "Geometry/Records/interface/TrackerDigiGeometryRecord.h"
@@ -51,7 +51,7 @@
 
 #include "Calibration/IsolatedParticles/interface/DetIdFromEtaPhi.h"
 
-#include "DQM/HcalCommon/interface/Constants.h"
+//#include "DQM/HcalCommon/interface/Constants.h"
 
 #include "DataFormats/EgammaCandidates/interface/Photon.h"
 #include "DataFormats/EgammaCandidates/interface/PhotonFwd.h" // reco::PhotonCollection defined here
