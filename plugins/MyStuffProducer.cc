@@ -29,7 +29,7 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Utilities/interface/StreamID.h"
-#include "StuffProducer/MyStuff/interface/MyStuff.h"
+#include "StuffProducer/MyStuff/interface/trial1.h"
 #include <vector>
 
 //
@@ -81,7 +81,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<ExampleData2,InRun>();
 */
    //now do what ever other initialization is needed
-   produces<MyStuff>("value");
+   produces<trial1>("value");
    produces<SampleCollection>("vec_of_values");
 }
 
@@ -122,7 +122,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
- std::unique_ptr<MyStuff> result2 (new MyStuff);
+ std::unique_ptr<trial1> result2 (new trial1);
  iEvent.put(std::move(result1));
  iEvent.put(std::move(result2));
 }
