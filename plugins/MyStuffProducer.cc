@@ -61,8 +61,8 @@
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
 using namespace std;
-using pat::PhotonCollection;
-using pat::PhotonRef;
+//using pat::PhotonCollection;
+//using pat::PhotonRef;
 //
 // class declaration
 //
@@ -80,8 +80,8 @@ class MyStuffProducer : public edm::stream::EDProducer<> {
       virtual void endStream() override;
 
  
-      edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_; 
-      edm::EDGetTokenT<PhotonCollection> photonCollectionT_;
+      //edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_; 
+      //edm::EDGetTokenT<PhotonCollection> photonCollectionT_;
       //virtual void beginRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void endRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&) override;
@@ -116,8 +116,8 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
 */
    //now do what ever other initialization is needed
  
-  EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
-  photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
+  //EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
+  //photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
  
    produces<trial1>("value");
    produces<SampleCollection>("vecvalues");
@@ -161,8 +161,8 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 */
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
- edm::Handle<EcalRecHitCollection> EBRecHitsH_;
- iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
+ //edm::Handle<EcalRecHitCollection> EBRecHitsH_;
+ //iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
  
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
