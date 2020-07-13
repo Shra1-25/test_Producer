@@ -3,7 +3,7 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 
 process = cms.Process("FramesProducer")
 
-process TEST = {
+process.source = {
     //just a dummy source to give us some empty events
    source = EmptySource {
       untracked int32 maxEvents=2
