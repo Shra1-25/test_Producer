@@ -11,7 +11,11 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 #load our module
 #module stuff = MyStuffProducer {}
-process.stuff=cms.EDProducer("MyStuffProducer") 
+#process.stuff=cms.EDProducer("MyStuffProducer") 
+
+ProducerFrames = cms.EDProducer('MyStuffProducer'
+    , reducedEBRecHitCollection = cms.InputTag('reducedEcalRecHitsEB')
+    , photonCollection = cms.InputTag('slimmedPhotons')
 
 process.TFileService = cms.Service("TFileService",
     fileName = cms.string("myoutput1.root")#options.outputFile
