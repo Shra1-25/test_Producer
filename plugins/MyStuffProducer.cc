@@ -29,7 +29,9 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Utilities/interface/StreamID.h"
-
+#include "Analysis/MyStuff/interface/MyStuff.h"
+#include "Analysis/MyStuff/interface/MyOtherStuff.h"
+#include <vector>
 
 //
 // class declaration
@@ -80,7 +82,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<ExampleData2,InRun>();
 */
    //now do what ever other initialization is needed
-  
+   produces<MyStuff>();
 }
 
 
@@ -117,7 +119,8 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
    ESHandle<SetupData> pSetup;
    iSetup.get<SetupRecord>().get(pSetup);
 */
- 
+ std::auto_ptr<MyStuff> myStuff( new MyStuff );
+ iEvent.put( myStuff);
 }
 
 // ------------ method called once each stream before processing any runs, lumis or events  ------------
