@@ -14,4 +14,4 @@ process.p = cms.Path(process.stuff)
 
 #just to see that something is happening
 service = cms.Tracer()
-}
+
