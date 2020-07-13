@@ -1,5 +1,5 @@
 <use name="FWCore/Framework"/>
 <use name="FWCore/PluginManager"/>
 <use name="FWCore/ParameterSet"/>
-<use name="Analysistrial1"/>
+<use name="StuffProducer/MyStuff/src/Analysistrial1"/>
 <flags EDM_PLUGIN="1"/>
