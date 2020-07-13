@@ -48,6 +48,9 @@ class MyStuffProducer : public edm::stream::EDProducer<> {
       virtual void produce(edm::Event&, const edm::EventSetup&) override;
       virtual void endStream() override;
 
+ 
+      edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_; 
+      edm::EDGetTokenT<PhotonCollection> photonCollectionT_;
       //virtual void beginRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void endRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&) override;
@@ -81,6 +84,10 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<ExampleData2,InRun>();
 */
    //now do what ever other initialization is needed
+ 
+  EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
+  photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
+ 
    produces<trial1>("value");
    produces<SampleCollection>("vecvalues");
    produces<int>("integer");
@@ -123,6 +130,9 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 */
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
+ edm::Handle<EcalRecHitCollection> EBRecHitsH_;
+ iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
+ 
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
  std::unique_ptr<int> result3 (new int(10));
