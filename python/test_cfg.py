@@ -17,13 +17,16 @@ process.stuff = cms.EDProducer('MyStuffProducer'
     , reducedEBRecHitCollection = cms.InputTag('reducedEcalRecHitsEB')
     , photonCollection = cms.InputTag('slimmedPhotons'))
 
+process.out = cms.OutputModule("PoolOutputModule",
+    fileName = cms.untracked.string('myOutputFile.root'))
+
 process.TFileService = cms.Service("TFileService",
     fileName = cms.string("myoutput1.root")#options.outputFile
     )
 
 #make sure our module is called every event
 process.p = cms.Path(process.stuff)
-
+process.ep = cms.EndPath(process.out)
 #just to see that something is happening
 #service = cms.Tracer()
 
