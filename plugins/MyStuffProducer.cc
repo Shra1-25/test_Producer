@@ -162,7 +162,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 */
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
- std::unique_ptr<EcalRecHitCollection> RechitEB_ (new edm::PSimHitContainer);
+ std::unique_ptr<EcalRecHitCollection> RechitEB_ (new EcalRecHitCollection);
  edm::Handle<EcalRecHitCollection> EBRecHitsH_;
  iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
  for ( EcalRecHitCollection::const_iterator iRHit = EBRecHitsH_->begin();
