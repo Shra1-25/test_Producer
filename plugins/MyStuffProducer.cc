@@ -174,7 +174,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
  std::unique_ptr<int> result3 (new int(10));
- auto result4=std::make_unique<float>(10.0);
+ auto result4=std::make_unique<float>(10.55);
  //std::unique_ptr<float> result4 (new float(10.0));
  //std::auto_ptr<int> result3 (new int(10));
  iEvent.put(std::move(result1),"vecvalues");
