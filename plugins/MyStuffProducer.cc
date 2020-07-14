@@ -123,6 +123,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
    produces<SampleCollection>("vecvalues");
    produces<int>("integer");
    produces<float>("tempgenParticles");
+   produces<EcalRecHitCollection> ("ECALtrial");
 }
 
 
@@ -161,8 +162,14 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 */
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
+ std::unique_ptr<EcalRecHitCollection> RechitEB_ (new edm::PSimHitContainer);
  edm::Handle<EcalRecHitCollection> EBRecHitsH_;
  iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
+ for ( EcalRecHitCollection::const_iterator iRHit = EBRecHitsH_->begin();
+        iRHit != EBRecHitsH_->end(); ++iRHit ) {
+  RechitEB_->push_back(*iRHit);
+ }
+ iEvent.put(std::move(RechitEB_),"ECALtrial");
  
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
