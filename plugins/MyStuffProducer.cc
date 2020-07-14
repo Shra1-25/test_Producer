@@ -41,28 +41,28 @@
 #include "DataFormats/EcalRecHit/interface/EcalRecHitCollections.h"
 #include "DataFormats/EcalDigi/interface/EcalDigiCollections.h"
 #include "DataFormats/EcalDetId/interface/EBDetId.h"
-//#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
-//#include "Geometry/CaloGeometry/interface/CaloCellGeometry.h"
+#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
+#include "Geometry/CaloGeometry/interface/CaloCellGeometry.h"
 #include "Geometry/Records/interface/CaloGeometryRecord.h"
 
 #include "Geometry/Records/interface/TrackerDigiGeometryRecord.h"
 #include "Geometry/TrackerGeometryBuilder/interface/TrackerGeometry.h"
 #include "Geometry/TrackerGeometryBuilder/interface/StripGeomDetUnit.h"
 
-//#include "Calibration/IsolatedParticles/interface/DetIdFromEtaPhi.h"
+#include "Calibration/IsolatedParticles/interface/DetIdFromEtaPhi.h"
 
-//#include "DQM/HcalCommon/interface/Constants.h"
+#include "DQM/HcalCommon/interface/Constants.h"
 
-//#include "DataFormats/EgammaCandidates/interface/Photon.h"
+#include "DataFormats/EgammaCandidates/interface/Photon.h"
 #include "DataFormats/EgammaCandidates/interface/PhotonFwd.h" // reco::PhotonCollection defined here
-//#include "DataFormats/PatCandidates/interface/Photon.h"
-//#include "DataFormats/TrackingRecHit/interface/TrackingRecHit.h"
-//#include "DataFormats/TrackingRecHit/interface/TrackingRecHitFwd.h"
+#include "DataFormats/PatCandidates/interface/Photon.h"
+#include "DataFormats/TrackingRecHit/interface/TrackingRecHit.h"
+#include "DataFormats/TrackingRecHit/interface/TrackingRecHitFwd.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
 using namespace std;
-//using pat::PhotonCollection;
-//using pat::PhotonRef;
+using pat::PhotonCollection;
+using pat::PhotonRef;
 //
 // class declaration
 //
@@ -80,8 +80,8 @@ class MyStuffProducer : public edm::stream::EDProducer<> {
       virtual void endStream() override;
 
  
-      //edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_; 
-      //edm::EDGetTokenT<PhotonCollection> photonCollectionT_;
+      edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_; 
+      edm::EDGetTokenT<PhotonCollection> photonCollectionT_;
       //virtual void beginRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void endRun(edm::Run const&, edm::EventSetup const&) override;
       //virtual void beginLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup const&) override;
@@ -116,8 +116,8 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
 */
    //now do what ever other initialization is needed
  
-  //EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
-  //photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
+  EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
+  photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
  
    produces<trial1>("value");
    produces<SampleCollection>("vecvalues");
@@ -161,8 +161,8 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 */
  /*std::auto_ptr<MyStuff> myStuff( new MyStuff );
  iEvent.put( myStuff);*/
- //edm::Handle<EcalRecHitCollection> EBRecHitsH_;
- //iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
+ edm::Handle<EcalRecHitCollection> EBRecHitsH_;
+ iEvent.getByToken( EBRecHitCollectionT_, EBRecHitsH_);
  
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
  std::unique_ptr<trial1> result2 (new trial1);
