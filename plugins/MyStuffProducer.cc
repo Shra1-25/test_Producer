@@ -174,6 +174,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  iEvent.put(std::move(result2),"value");
  iEvent.put(std::move(result3),"integer");
  iEvent.put(std::move(result4),"tempgenParticles");
+ std::cout<<"All Done."<<std::endl;
 }
 
 // ------------ method called once each stream before processing any runs, lumis or events  ------------
