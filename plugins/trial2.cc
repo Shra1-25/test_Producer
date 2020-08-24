@@ -13,7 +13,7 @@
 // system include files
 
 // user include files
-#include "StuffProducer/MyStuff/interface/trial1.h"
+#include "StuffProducer/MyStuff/interface/trial2.h"
 //#include <iostream>
 //using namespace std;
 
@@ -39,7 +39,7 @@
 //    // do actual copying here;
 // }
 
-trial1::~trial1()
+trial2::~trial2()
 {
 }
 
