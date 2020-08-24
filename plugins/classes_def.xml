@@ -1,6 +1,0 @@
-<lcgdict>
-  <class pattern="edm::Wrapper<*>"/>
-  <class name="trial2"/>
-  <class name="std::vector<trial2>"/>
-  <class name="edm::Wrapper<std::vector<trial2> >"/>
-</lcgdict>
