@@ -26,7 +26,7 @@ class trial2
 {
 
    public:
-      explicit trial1(int v):value_(v) { }
+      explicit trial2(int v):value_(v) { }
       trial2():value_(0) { }
       int value_;
       virtual ~trial2();
