@@ -29,7 +29,7 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Utilities/interface/StreamID.h"
-#include "StuffProducer/MyStuff/interface/trial2.h"
+#include "StuffProducer/MyStuff/interface/trial1.h"
 #include <vector>
 
 #include "FWCore/Framework/interface/Event.h"
@@ -119,7 +119,7 @@ MyStuffProducer::MyStuffProducer(const edm::ParameterSet& iConfig)
   EBRecHitCollectionT_    = consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("reducedEBRecHitCollection"));
   photonCollectionT_ = consumes<PhotonCollection>(iConfig.getParameter<edm::InputTag>("photonCollection"));
  
-   produces<trial2>("value");
+   produces<trial1>("value");
    produces<SampleCollection>("vecvalues");
    produces<int>("integer");
    produces<float>("tempgenParticles");
@@ -172,7 +172,7 @@ MyStuffProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
  iEvent.put(std::move(RechitEB_),"ECALtrial");
  
  std::unique_ptr<SampleCollection> result1 (new SampleCollection);
- std::unique_ptr<trial2> result2 (new trial2);
+ std::unique_ptr<trial1> result2 (new trial1);
  std::unique_ptr<int> result3 (new int(10));
  auto result4=std::make_unique<float>(10.55);
  //std::unique_ptr<float> result4 (new float(10.0));
