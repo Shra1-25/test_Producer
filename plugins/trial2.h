@@ -1,5 +1,5 @@
-#ifndef MyStuff_interface_trial1_h
-#define MyStuff_interface_trial1_h
+#ifndef MyStuff_interface_trial2_h
+#define MyStuff_interface_trial2_h
 #include <vector>
 // -*- C++ -*-
 //
@@ -22,14 +22,14 @@
 
 // forward declarations
 
-class trial1
+class trial2
 {
 
    public:
       explicit trial1(int v):value_(v) { }
-      trial1():value_(0) { }
+      trial2():value_(0) { }
       int value_;
-      virtual ~trial1();
+      virtual ~trial2();
       
       // ---------- const member functions ---------------------
 
@@ -47,6 +47,6 @@ class trial1
 
 // this is our new product, it is simply a 
 // collection of SampleProd held in an std::vector
-typedef std::vector<trial1> SampleCollection;
+typedef std::vector<trial2> SampleCollection;
 
 #endif
